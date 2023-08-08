@@ -6,11 +6,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 function Sub() {
   return (
-    <main
+    <div
       className={``}
     >
       
-    </main>
+    </div>
   )
 }
 

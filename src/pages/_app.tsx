@@ -5,6 +5,8 @@ import { GlobalStyle } from '../styles/global-style'
 import { theme } from '../styles/theme'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import '../styles/globals.scss'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
 

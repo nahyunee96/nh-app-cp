@@ -1,11 +1,27 @@
 import Link from 'next/link';
 
+
 const Header = () => {
     return(
-        <header>
-            <Link href="/sub">
-                서브페이지 이동
-            </Link>
+        <header className="header">
+            <nav>
+                <ul className="nav__inner">
+                    <li>
+                        <Link href="/">
+                            Main
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/sub">
+                            ScrollTriggered section
+                        </Link>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </nav>
         </header>
     )
    

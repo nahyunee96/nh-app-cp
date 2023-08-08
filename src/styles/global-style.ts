@@ -4,24 +4,41 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
-    // :focus {
-    //     outline: none;
-    //     border: none;
-    // }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        background-repeat: no-repeat;
+    }
+
     ::-webkit-scrollbar {
         display: none;
     }
     html{
-        font-size: 11px;
+        font-size: 62.5%;
         -webkit-text-size-adjust: none;
         font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
         font-display: fallback;
         ${media.tablet}{
-            font-size: 10px;
+            font-size: 62.5%;
         }
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+
+    ul,ol {
+      list-style:none;  
+    }
+
+    ul,ol {
+        list-style:none;  
+    }
+
+    a {
+        text-decoration: none;
+        color: #252525;
+    }
+
     button {
         background: none;
         padding: 0;
