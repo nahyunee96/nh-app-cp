@@ -1,36 +1,35 @@
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from '../styles/global-style'
-import { theme } from '../styles/theme'
+import Head from 'next/head'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import '../styles/globals.scss'
 
-
-function MyApp({ Component, pageProps }: AppProps) {
-
+const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const vh = window.innerHeight;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      const setVh = (): void => {
+        const vh = window.innerHeight
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
+      }
+      
+      window.addEventListener('resize', setVh)
 
-      window.onresize = () => {
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      return () => {
+        window.removeEventListener('resize', setVh)
       }
     }
-  }, []);
-
-
+  }, [])
 
   return (
     <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </ThemeProvider>
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>nahyun ♥</title>
+      </Head>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
     </>
   )
 }
