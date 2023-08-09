@@ -31,6 +31,11 @@ module.exports = {
         'xs': {'max': '575px'},
         // => @media (max-width: 575px) { ... }
       },
+      width: {
+        '128': '32rem',
+        '160': '40rem',
+      },
+      
     },
     fontFamily: {
       sans: ['Pretandard', 'sans-serif'],
