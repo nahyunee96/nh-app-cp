@@ -21,7 +21,7 @@
 
     input[type='checkbox']:checked + label::before {
         border-color: rgb(203 223 255);
-        content: 'V';
+        content: '✓';
         color: rgb(203 223 255);
         font-size: 0.5rem;
     }
@@ -45,5 +45,109 @@
         a::before {
             content: none;
         }
+    }
+}
+
+.cinamoroll {
+    animation: cinam_ani 1.2s ease-in-out;
+}
+
+@keyframes cinam_ani {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#cinamoroll__01 {
+    animation: cinamo_ani_01 7s .5s both;
+    stroke-dasharray: 102853;
+    stroke-dashoffset: 102853;
+}
+
+@keyframes cinamo_ani_01 {
+    0% {
+        stroke-dashoffset: 102853;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+#cinamoroll__02 {
+    animation: cinamo_ani_02 .6s 2.5s both;
+    stroke-dasharray: 2074;
+    stroke-dashoffset: 2074;
+}
+
+@keyframes cinamo_ani_02 {
+    0% {
+        
+        stroke-dashoffset: 2074;
+    }
+
+    100% {
+        
+        stroke-dashoffset: 0;
+    }
+}
+
+#cinamoroll__03 {
+    animation: cinamo_ani_03 .6s 2.5s both;
+    stroke-dasharray: 2020;
+    stroke-dashoffset: 2020;
+}
+
+@keyframes cinamo_ani_03 {
+    0% {
+        
+        stroke-dashoffset: 2020;
+    }
+
+    100% {
+        
+        stroke-dashoffset: 0;
+    }
+}
+
+#cinamoroll__04 {
+    animation: cinamo_ani_04 .6s 2.7s both;
+    stroke-dasharray: 4987;
+    stroke-dashoffset: 4987;
+}
+
+@keyframes cinamo_ani_04 {
+    0% {
+        
+        stroke-dashoffset: 4987;
+    }
+
+    100% {
+        
+        stroke-dashoffset: 0;
+    }
+}
+
+#cinamoroll__05 {
+    animation: cinamo_ani_05 1s 1.5s both;
+    stroke-dasharray: 2973;
+    stroke-dashoffset: 2973;
+}
+
+@keyframes cinamo_ani_05 {
+    0% {
+        
+        stroke-dashoffset: 2973;
+    }
+
+    100% {
+        
+        stroke-dashoffset: 0;
     }
 }

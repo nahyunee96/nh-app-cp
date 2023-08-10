@@ -22,8 +22,8 @@ const Header = () => {
                         </Link>
                     </li>
                     <li className="basis-3/12 full">
-                        <Link href="/login" className="text-slate-100 border-r border-gray-100 w-full h-full flex justify-center items-center text-xl px-5 hover:tracking-widest duration-300" >
-                            Login
+                        <Link href="/ect" className="text-slate-100 border-r border-gray-100 w-full h-full flex justify-center items-center text-xl px-5 hover:tracking-widest duration-300" >
+                            Ect
                         </Link>
                     </li>
                 </ul>
