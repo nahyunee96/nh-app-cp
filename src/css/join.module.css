@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.agree__chk input[type=checkbox]:checked + label {
+  color: rgb(203, 223, 255);
+}
+.agree__chk input[type=checkbox] + label::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  margin-top: 1px;
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(51, 65, 85);
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s;
+}
+.agree__chk input[type=checkbox]:checked + label::before {
+  border-color: rgb(203, 223, 255);
+  content: "✓";
+  color: rgb(203, 223, 255);
+  font-size: 0.5rem;
+}
