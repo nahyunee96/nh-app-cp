@@ -2,16 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 * {
-    box-sizing: border-box;
-    font-family: 'Raleway','IBM Plex Sans KR', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Raleway','IBM Plex Sans KR', sans-serif;
 }
 
 body {
-    background-color: rgb(2, 6, 23);
+  background-color: rgb(2, 6, 23);
 }
 
 #__next {
-    height: var(--vh);
+  height: var(--vh);
 }
