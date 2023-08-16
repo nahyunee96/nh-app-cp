@@ -20,7 +20,9 @@ function Home() {
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#215CA5'}, 0.5)
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#112F54'}, 0.5)
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#475569'}, 0.5)
-  })
+  }, [])
+
+
 
   return (
     <main className={styles.main__wrapper} id="main__wrapper">

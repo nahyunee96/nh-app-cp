@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import { Inter } from 'next/font/google'
 import styles from '../styles/join.module.scss'
 
@@ -138,8 +138,21 @@ function Join () {
             JoinMailText.innerText='사용할 수 있는 이메일입니다.'
         }
       }
-  }
+    }
+
   }, [])
+
+  //useEffect(()=>{
+    const [showPopup, setShowPopup] = useState(false);
+
+    const togglePopup = () => {
+      if(showPopup === false){
+        setShowPopup(true)
+      } else {
+        setShowPopup(false)
+      }
+    };
+  //}, [])
 
   return (
     <div className='
@@ -188,8 +201,17 @@ function Join () {
             <label htmlFor="id__save__btn" className="text-slate-700 font-medium cursor-pointer relative pl-6 hover:text-slate-300 duration-300">개인정보 처리방침 동의</label>
         </div>
         <div className="">
-            <button type="button" id="popupDom" className='text-slate-700 cursor-pointer underline hover:text-slate-300 duration-300'>개인정보 처리방침 보기</button>
-            
+            <button type="button" onClick ={togglePopup} value = 'false' id="popupDom" className='text-slate-700 cursor-pointer underline hover:text-slate-300 duration-300'>개인정보 처리방침 보기</button>
+            {showPopup ? (
+            <div className="popup">
+              <div className="popup_inner">
+                <h2>Success!</h2>
+                <button className="close"  onClick={togglePopup}>
+                  Close me
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
       <div>
