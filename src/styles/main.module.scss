@@ -55,25 +55,28 @@
 }
 
 .marketing__lab {
-  cursor: pointer;
-  fill: red;
-  position: absolute;
-  left: 0;
-  top: 0;
+  transform: translateY(-200px);
 }
 
-.mask {
-  fill: none;
-  //stroke: rgb(2, 6, 23);
+.mask path {
+  fill: #fff;
   stroke: #fff;
-  stroke-dasharray: 100000;
-  stroke-dashoffset: 100000;
-  animation: strokeOffset 5s linear both;
+}
+
+.mask__2 {
+  fill: none;
+  stroke: #5DC7EE;
+  stroke-width: 25px;
+  stroke-dasharray: 2238;
+  animation: strokeAni 3s linear both;
 }
 
 
-@keyframes strokeOffset {
-  to {
+@keyframes strokeAni {
+  0% {
+    stroke-dashoffset: 2238;
+  }
+  100% {
     stroke-dashoffset: 0;
   }
 }
