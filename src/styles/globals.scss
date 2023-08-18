@@ -7,6 +7,10 @@
   font-family: 'Raleway','IBM Plex Sans KR', sans-serif;
 }
 
+body, html, #__next {
+  // height: 100% !important;
+}
+
 body {
   background-color: rgb(2, 6, 23);
 }

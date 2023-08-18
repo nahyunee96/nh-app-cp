@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Header = () => {
     return(
-        <header className="header w-full fixed h-24 bg-slate-950 border-b border-gray-100">
+        <header className="header w-full fixed h-24  bg-slate-950 border-b top-0 inset-x-0 border-gray-100">
             <nav className="w-full h-full">
                 <ul className="w-full h-full flex">
                     <li className="basis-3/12 h-full">

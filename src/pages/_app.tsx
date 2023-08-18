@@ -6,6 +6,8 @@ import Footer from '../components/Footer'
 import '../styles/globals.scss'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const setVh = (): void => {
@@ -28,6 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title>nahyun ♥</title>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"></link>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
       </Head>
       <Header />
       <Component {...pageProps} />

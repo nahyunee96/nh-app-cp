@@ -1,0 +1,17 @@
+.section {
+  height: 45%;
+}
+
+.scene {
+  position: relative;
+  background-color: transparent;
+  height: 50%;
+  
+}
+
+.viewer {
+  background-image: url('../img/cinnamoroll_frame.png?new');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  max-width: 300px;
+}
