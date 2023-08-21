@@ -8,13 +8,13 @@
 }
 
 body, html, #__next {
-  // height: 100% !important;
+  height: 100% !important;
 }
 
 body {
   background-color: rgb(2, 6, 23);
 }
 
-#__next {
-  height: var(--vh);
-}
+// #__next {
+//   height: var(--vh);
+// }

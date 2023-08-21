@@ -10,6 +10,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+
       const setVh = (): void => {
         const vh = window.innerHeight
         document.documentElement.style.setProperty('--vh', `${vh}px`)
@@ -28,9 +29,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>nahyun ♥</title>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"></link>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
       </Head>
       <Header />
       <Component {...pageProps} />

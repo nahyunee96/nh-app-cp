@@ -14,12 +14,18 @@ function Home() {
   }, [])
 
   useEffect(()=>{
-    var sunSpeed = .8
-    var gradTl:any = gsap.timeline({repeat: -1, repeatDelay: 0, delay:0.5});
+    let sunSpeed = .8
+    let gradTl:any = gsap.timeline({repeat: -1, repeatDelay: 0, delay:0.5})
+    let gradTl_text:any = gsap.timeline({repeat: -1, repeatDelay: 0, delay:0.5})
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#5DC7EE'}, 0.5)
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#215CA5'}, 0.5)
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#112F54'}, 0.5)
     gradTl.staggerTo("#gradient stop", sunSpeed, {stopColor:'#475569'}, 0.5)
+
+    gradTl_text.staggerTo("#gradient__text stop", sunSpeed, {stopColor:'#5DC7EE'}, 0.5)
+    gradTl_text.staggerTo("#gradient__text stop", sunSpeed, {stopColor:'#215CA5'}, 0.5)
+    gradTl_text.staggerTo("#gradient__text stop", sunSpeed, {stopColor:'#112F54'}, 0.5)
+    gradTl_text.staggerTo("#gradient__text stop", sunSpeed, {stopColor:'#475569'}, 0.5)
   }, [])
 
 
@@ -29,13 +35,14 @@ function Home() {
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
       width="1048.000000pt" height="876.000000pt" viewBox="0 0 1048.000000 876.000000"
       preserveAspectRatio="xMidYMid meet">
-
       <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse" gradientTransform='translate(0,0)'>
+        <linearGradient id="gradient__text" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse" gradientTransform='translate(0,0)'>
           <stop offset="0%"  />
           <stop offset="100%"  />
         </linearGradient>
       </defs>
+
+     
 
       <g transform="translate(0.000000,876.000000) scale(0.100000,-0.100000)"
       fill="none" stroke="#5DC7EE" strokeWidth="20">
@@ -135,7 +142,9 @@ function Home() {
 
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
       width="1000px" height="350px" viewBox="0 0 1100 350" className={styles.marketing__lab}>
+       
         <defs>
+        
         <mask id="myMask">
         <g id="marketing__masks" className={styles.mask} transform="translate(0,262) scale(0.05000,-0.055000)">
           
@@ -997,8 +1006,10 @@ function Home() {
           <path d="M6376 1976 c3 -9 11 -16 16 -16 13 0 5 23 -10 28 -7 2 -10 -2 -6 -12z"/>
           </g>
           </mask>
-        
+          
         </defs>
+        
+        
         
         <g id="marketing__lab" mask="url(#myMask)" transform="translate(-87, -88) scale(1.790, 1.95)">
           <path className={styles.mask__2} id="length" d="M104.536,124.258c0,0-14.036-36.508-36.5-17.5  c0,0-24.536,43.242,18.714,37.242c0,0,16-4.75,21.5-16.5l15-38.25l2.5,66.75l24.75-2l-1.25-60l35.5,60.5l-3-62.25L209.5,156  l-1.75-66.75L242,156l1.25-66.75l23,64.25l17-62.5l24.5,61.25l-43-17l44.5-1.25l14.25,20.5l9.25-61.75l16,61.5L366.5,90.5l8.5,67  l38.25-56c0,0-22.5,1.75-20.75,21.875S412.25,147.5,417.75,144s16.25-9.25,17.75-22s-13.75-20.5-24.5-22.25S458.75,156,458.75,156  V92.5c0,0,25.25,7.75,26.5,18.75s-11.25,22.5-29.75,15.5c0,0,10.75-5.5,24.75,1.75l11,29l36.5-55.75c0,0-20.75,3.25-18.75,23.25  s14.25,19.5,20.25,18.5S546.75,135,548,125s-17.5-22.5-17.5-22.5l42-8.5v51.75l32.5-3L619.75,94v50.5l31-3.5"/>
