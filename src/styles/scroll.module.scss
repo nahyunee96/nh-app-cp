@@ -1,14 +1,19 @@
-
-
 .section {
-  height: 45%;
+  height: 45vh;
+}
+
+.head__section {
+  height: var(--vh);
+}
+
+.wrapper li {
+  flex-shrink: 0;
+  padding-right: 1rem;
 }
 
 .scene {
-  position: relative;
   background-color: transparent;
-  height: 50%;
-  
+  height: calc(var(--vh) / 2);
 }
 
 .viewer {
