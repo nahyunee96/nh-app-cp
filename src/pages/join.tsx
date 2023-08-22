@@ -1,13 +1,12 @@
-import React, { Component, useEffect, useState } from 'react'
-import { Inter } from 'next/font/google'
+import { useEffect, useState } from 'react'
+import { NextPage } from 'next'
+import { elementGetter } from '@/util/element.getter'
 import styles from '../styles/join.module.scss'
 
-const inter = Inter({ subsets: ['latin'] })
-
-const Join: React.FC = () => {
+const Join: NextPage = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const joinBtn = document.getElementById('form__join__btn') as HTMLSpanElement | null;
+      const joinBtn = elementGetter<HTMLSpanElement>('#form__join__btn')
       const JoinFormIdInput = document.getElementById('form__id__join') as HTMLInputElement | null;
       const JoinFormPwInput = document.getElementById('form__pw__join') as HTMLInputElement | null;
       const JoinFormPwCfInput = document.getElementById('form__pw__cf__join') as HTMLInputElement | null;
