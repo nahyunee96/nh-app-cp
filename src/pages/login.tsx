@@ -6,29 +6,28 @@ import styles from '../styles/login.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
-function Login() {
+const Login: React.FC = () => {
   
     useEffect(() => {
       if (typeof window !== 'undefined') {
-        const loginBtn = document.getElementById('form__login__btn') as HTMLSpanElement;
-
-        const LoginFormIdInput = document.getElementById('form__id__login') as HTMLInputElement;
-        const LoginFormPwInput = document.getElementById('form__pw__login') as HTMLInputElement;
-
-
-        loginBtn.addEventListener('click', ()=>{
-          console.log('시나모롤 귀여워')
-
-          if (LoginFormIdInput.value === ''){
-            alert('아이디를 입력해주세요.')
-          } else if (LoginFormPwInput.value === '') {
-            alert('비밀번호를 입력해주세요.')
-          } else {
-            return true;
-          }
-        })
+        const loginBtn = document.getElementById('form__login__btn') as HTMLSpanElement | null;
+  
+        const LoginFormIdInput = document.getElementById('form__id__login') as HTMLInputElement | null;
+        const LoginFormPwInput = document.getElementById('form__pw__login') as HTMLInputElement | null;
+  
+        if (loginBtn && LoginFormIdInput && LoginFormPwInput) {
+          loginBtn.addEventListener('click', () => {
+            console.log('시나모롤 귀여워')
+  
+            if (LoginFormIdInput.value === '') {
+              alert('아이디를 입력해주세요.')
+            } else if (LoginFormPwInput.value === '') {
+              alert('비밀번호를 입력해주세요.')
+            } else {
+              return true;
+            }
+          })
+        }
       }
     }, [])
     

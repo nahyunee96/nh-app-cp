@@ -4,146 +4,150 @@ import styles from '../styles/join.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
-function Join () {
+const Join: React.FC = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const joinBtn = document.getElementById('form__join__btn') as HTMLSpanElement
-      const JoinFormIdInput = document.getElementById('form__id__join') as HTMLInputElement
-      const JoinFormPwInput = document.getElementById('form__pw__join') as HTMLInputElement
-      const JoinFormPwCfInput = document.getElementById('form__pw__cf__join') as HTMLInputElement
-      let JoinPwInputV = JoinFormPwInput.value
-      let JoinPwCfInputV = JoinFormPwCfInput.value
-      const JoinFormMailInput = document.getElementById('form__mail__join') as HTMLInputElement
-      const JoinFormNameInput = document.getElementById('form__name__join') as HTMLInputElement
+      const joinBtn = document.getElementById('form__join__btn') as HTMLSpanElement | null;
+      const JoinFormIdInput = document.getElementById('form__id__join') as HTMLInputElement | null;
+      const JoinFormPwInput = document.getElementById('form__pw__join') as HTMLInputElement | null;
+      const JoinFormPwCfInput = document.getElementById('form__pw__cf__join') as HTMLInputElement | null;
+      const JoinFormMailInput = document.getElementById('form__mail__join') as HTMLInputElement | null;
+      const JoinFormNameInput = document.getElementById('form__name__join') as HTMLInputElement | null;
 
-      const RegType = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/
-      const RegTypeMail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+      const RegType = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
+      const RegTypeMail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-      joinBtn.addEventListener('click', ()=>{
+      if (joinBtn && JoinFormIdInput && JoinFormPwInput && JoinFormPwCfInput && JoinFormMailInput && JoinFormNameInput) {
+        joinBtn.addEventListener('click', () => {
           console.log('시나모롤 귀여워')
-      //id
-      if (JoinFormIdInput.value === ''){
-        alert('아이디를 입력해주세요.')
-        JoinFormIdInput.focus()
-        return
-      }
 
-      if (!RegType.test(JoinFormIdInput.value)) {
-        alert('사용할 수 없는 아이디를 입력하셨습니다. 조건에 맞게 입력해주세요.')
-        JoinFormIdInput.focus()
-        return
-      }
+          // id
+          if (JoinFormIdInput.value === '') {
+            alert('아이디를 입력해주세요.')
+            JoinFormIdInput.focus();
+            return;
+          }
 
-      //pw
-      if (JoinFormPwInput.value === '') {
-        alert('비밀번호를 입력해주세요.')
-        JoinFormPwInput.focus()
-        return
-      }
-      if (!RegType.test(JoinFormPwInput.value)) {
-        alert('사용할 수 없는 비밀번호를 입력하셨습니다. 조건에 맞게 입력해주세요.')
-        JoinFormPwInput.focus()
-        return
-      }
-      if (JoinFormPwCfInput.value === '') {
-        alert('비밀번호를 한번 더 입력해주세요.')
-        JoinFormPwCfInput.focus()
-        return
-      } 
-      
-      if (JoinPwInputV !== JoinPwCfInputV) {
-        alert('비밀번호 확인이 일치하지 않습니다. 다시 입력해 주세요.')
-        return
-      }
+          if (!RegType.test(JoinFormIdInput.value)) {
+            alert('사용할 수 없는 아이디를 입력하셨습니다. 조건에 맞게 입력해주세요.');
+            JoinFormIdInput.focus()
+            return;
+          }
 
-      //name
-      if (JoinFormNameInput.value === '') {
-        alert('성명을 입력해주세요.')
-        JoinFormNameInput.focus()
-        return
-      }
+          // pw
+          if (JoinFormPwInput.value === '') {
+            alert('비밀번호를 입력해주세요.')
+            JoinFormPwInput.focus()
+            return;
+          }
+          if (!RegType.test(JoinFormPwInput.value)) {
+            alert('사용할 수 없는 비밀번호를 입력하셨습니다. 조건에 맞게 입력해주세요.');
+            JoinFormPwInput.focus()
+            return;
+          }
+          if (JoinFormPwCfInput.value === '') {
+            alert('비밀번호를 한번 더 입력해주세요.');
+            JoinFormPwCfInput.focus()
+            return;
+          }
 
-      //email
-      if (JoinFormMailInput.value === '') {
-        alert('이메일을 입력해주세요.')
-        JoinFormMailInput.focus()
-        return
-      }
+          if (JoinFormPwInput.value !== JoinFormPwCfInput.value) {
+            alert('비밀번호 확인이 일치하지 않습니다. 다시 입력해 주세요.');
+            return;
+          }
 
-      if (!RegTypeMail.test(JoinFormMailInput.value)) {
-        alert('올바른 이메일 형식이 아닙니다. 확인 후 다시 입력해주세요.')
-        JoinFormMailInput.focus()
-        return
-      }
+          // name
+          if (JoinFormNameInput.value === '') {
+            alert('성명을 입력해주세요.');
+            JoinFormNameInput.focus()
+            return;
+          }
 
-      else {
-          
-      }
+          // email
+          if (JoinFormMailInput.value === '') {
+            alert('이메일을 입력해주세요.');
+            JoinFormMailInput.focus()
+            return;
+          }
 
-      })
+          if (!RegTypeMail.test(JoinFormMailInput.value)) {
+            alert('올바른 이메일 형식이 아닙니다. 확인 후 다시 입력해주세요.');
+            JoinFormMailInput.focus()
+            return;
+          }
+
+          // Other actions after validation
+        });
+      }
 
       //oninput
-      JoinFormIdInput.oninput = () => {
-        const JoinIdText = document.getElementById('id__text__join') as HTMLInputElement
-        if (JoinFormIdInput.value == '') {
-            JoinIdText.innerText=`• 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.`
-        } else if (!RegType.test(JoinFormIdInput.value)) {
-            console.log('응 아니야~ 이 아이디 못써')
-            JoinIdText.innerText='사용할 수 없는 아이디입니다.'
-        } 
-        else {
-            JoinIdText.innerText='사용 가능한 아이디입니다.'
-        }
+      if (JoinFormIdInput) {
+        JoinFormIdInput.addEventListener('input', () => {
+          const JoinIdText = document.getElementById('id__text__join') as HTMLInputElement | null;
+          if (JoinIdText) {
+            if (!JoinFormIdInput.value) {
+              JoinIdText.innerText = '• 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.'
+            } else if (!RegType.test(JoinFormIdInput.value)) {
+              console.log('응 아니야~ 이 아이디 못써');
+              JoinIdText.innerText = '사용할 수 없는 아이디입니다.'
+            } else {
+              JoinIdText.innerText = '사용 가능한 아이디입니다.'
+            }
+          }
+        });
       }
 
-      JoinFormPwInput.oninput = () => {
-        const JoinPwText = document.getElementById('pw__text__join') as HTMLElement
-        if (JoinFormPwInput.value == '') {
-            JoinPwText.innerText=`• 비밀번호는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.`
-            return
-        }
-        if (!RegType.test(JoinFormPwInput.value)) {
-            console.log('응 아니야~ 이 비번 못써')
-            JoinPwText.innerText='사용할 수 없는 비밀번호입니다.'
-            return
-        } 
-        else {
-            JoinPwText.innerText='사용 가능한 비밀번호입니다.'
-        }
+      if (JoinFormPwInput) {
+        JoinFormPwInput.addEventListener('input', () => {
+          const JoinPwText = document.getElementById('pw__text__join') as HTMLElement | null;
+          if (JoinPwText) {
+            if (!JoinFormPwInput.value) {
+              JoinPwText.innerText = '• 비밀번호는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.'
+            } else if (!RegType.test(JoinFormPwInput.value)) {
+              console.log('응 아니야~ 이 비번 못써')
+              JoinPwText.innerText = '사용할 수 없는 비밀번호입니다.'
+            } else {
+              JoinPwText.innerText = '사용 가능한 비밀번호입니다.'
+            }
+          }
+        });
       }
 
-      JoinFormPwCfInput.oninput = () => {
-          
-
-        const JoinPwCfText = document.getElementById('pw__cf__text__join') as HTMLElement
-
-        if (JoinPwInputV !== JoinPwCfInputV) {
-            JoinPwCfText.innerText='비밀번호가 일치하지 않습니다. 다시 확인해 주세요.'
-        } else {
-            JoinPwCfText.innerText='비밀번호가 일치합니다.'
-        }
+      if (JoinFormPwCfInput) {
+        JoinFormPwCfInput.addEventListener('input', () => {
+          const JoinPwCfText = document.getElementById('pw__cf__text__join') as HTMLElement | null;
+          if (JoinPwCfText) {
+            if (JoinFormPwInput && JoinFormPwCfInput) {
+              if (JoinFormPwInput.value !== JoinFormPwCfInput.value) {
+                JoinPwCfText.innerText = '비밀번호가 일치하지 않습니다. 다시 확인해 주세요.'
+              } else {
+                JoinPwCfText.innerText = '비밀번호가 일치합니다.'
+              }
+            }
+          }
+        });
       }
 
-      JoinFormMailInput.oninput = () => {
-        const JoinMailText = document.getElementById('mail__text__join') as HTMLElement
-        if (JoinFormMailInput.value == '') {
-            JoinMailText.innerText='• 비밀번호를 찾을 때 사용됩니다.'
-            return
-        } 
-        if (!RegTypeMail.test(JoinFormMailInput.value)) {
-            JoinMailText.innerText='올바른 메일 형식이 아닙니다. 확인 후 다시 입력해 주세요.'
-            return
-        } 
-        else {
-            JoinMailText.innerText='사용할 수 있는 이메일입니다.'
-        }
+      if (JoinFormMailInput) {
+        JoinFormMailInput.addEventListener('input', () => {
+          const JoinMailText = document.getElementById('mail__text__join') as HTMLElement | null;
+          if (JoinMailText) {
+            if (!JoinFormMailInput.value) {
+              JoinMailText.innerText = '• 비밀번호를 찾을 때 사용됩니다.'
+            } else if (!RegTypeMail.test(JoinFormMailInput.value)) {
+              JoinMailText.innerText = '올바른 메일 형식이 아닙니다. 확인 후 다시 입력해 주세요.'
+            } else {
+              JoinMailText.innerText = '사용할 수 있는 이메일입니다.'
+            }
+          }
+        });
       }
     }
 
   }, [])
 
   //useEffect(()=>{
-    const [showPopup, setShowPopup] = useState(false);
+    const [showPopup, setShowPopup] = useState(false)
 
     const togglePopup = () => {
       if(showPopup === false){

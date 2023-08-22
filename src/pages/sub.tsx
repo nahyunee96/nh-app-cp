@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 //function Sub() {
 const Sub: React.FC = () => {
-  const boxRef = useRef(null);
+  const boxRef = useRef<HTMLDivElement | null>(null);;
 
   useEffect(() => {
 
@@ -38,7 +38,7 @@ const Sub: React.FC = () => {
 
   useEffect(() => {
 
-    const images:any = gsap.utils.toArray("img");
+    const images = gsap.utils.toArray<HTMLImageElement>("img");
     //const loader:any = document.querySelector(".loader--text");
     /*const updateProgress = (instance:any) =>
       (loader.textContent = `${Math.round(
@@ -48,18 +48,18 @@ const Sub: React.FC = () => {
     const showDemo = () => {
 
       document.body.style.overflow = "auto";
-      document.scrollingElement || document.documentElement.scrollTo(0, 0);
+      document.scrollingElement?.scrollTo(0, 0);
       //gsap.to(document.querySelector(".loader"), { autoAlpha: 0 });
 
-      gsap.utils.toArray("section").forEach((section:any, index) => {
+      gsap.utils.toArray<HTMLDivElement>("section").forEach((section, index) => {
         
-        const w = section.querySelector(".wrapper") 
+        const w = section.querySelector(".wrapper") as HTMLDivElement | null;
 
-        if (w !== null && w !== undefined) {
+        if (w) {
           const [x, xEnd] =
             index % 2
-              ? ["100%", (w.scrollWidth - section.offsetWidth) * -1]
-              : [w.scrollWidth * -1, 0];
+              ? ['100%', `${(w.scrollWidth - section.offsetWidth) * -1}px`]
+              : [`${w.scrollWidth * -1}px`, '0'];
           gsap.fromTo(
             w,
             { x },
@@ -76,7 +76,7 @@ const Sub: React.FC = () => {
       })
     }
 
-    imagesLoaded(images).on("always", showDemo)
+    imagesLoaded(document.body, showDemo)
   }, [])
 //}
 
@@ -86,30 +86,45 @@ const Sub: React.FC = () => {
         <h2 className="text-cyan-300 text-7xl flex font-black leading-none">WELCOME TO THE WORLD OF CINAMOROLLS!</h2>
       </div>
 
-      <section className={`${styles.section} ${styles.first__section} flex justify-center items-center `}>
+      <section className={`${styles.section} ${styles.text__section} flex justify-center items-center `}>
         <h2 className="wrapper text-cyan-300 text-9xl flex font-black leading-none whitespace-nowrap">WELCOME TO THE WORLD OF CINAMOROLLS!</h2>
       </section>
 
-      <section className={`${styles.section} ${styles.second__section}`}>
+      <section className={`${styles.section} ${styles.image__section}`}>
         <ul className={`${styles.wrapper} wrapper flex`}>
           <li>
             <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
           </li>
           <li>
-            <Image height='900' src='/src/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
           </li>
           <li>
-            <Image height='900' src='/src/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
           </li>
           <li>
-            <Image height='900' src='/src/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
           </li>
         </ul>
       </section>
-      <section className={`${styles.section} ${styles.second__section}`}>
-        <ul className={styles.wrapper}>
-          
+      <section className={`${styles.section} ${styles.image__section}`}>
+        <ul className={`${styles.wrapper} wrapper flex`}>
+          <li>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+          </li>
+          <li>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+          </li>
+          <li>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+          </li>
+          <li>
+            <Image height='900' src='/img/cinnamonroll__01.jpg' width='1440' alt="cinnamoroll"/>
+          </li>
         </ul>
+      </section>
+
+      <section className={`${styles.section} ${styles.text__section} flex justify-center items-center `}>
+        <h2 className="wrapper text-cyan-300 text-9xl flex font-black leading-none whitespace-nowrap">WELCOME TO THE WORLD OF CINAMOROLLS!</h2>
       </section>
       
 

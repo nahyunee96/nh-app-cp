@@ -7,14 +7,15 @@ import '../styles/globals.scss'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
 
-      const setVh = (): void => {
-        const vh = window.innerHeight
+      let setVh = (): void => {
+        let vh = window.innerHeight
         document.documentElement.style.setProperty('--vh', `${vh}px`)
       }
+
+      setVh()
       
       window.addEventListener('resize', setVh)
 

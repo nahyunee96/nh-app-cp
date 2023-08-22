@@ -1,9 +1,21 @@
-.section {
-  height: 45vh;
-}
-
 .head__section {
   height: var(--vh);
+}
+
+.text__section {
+  margin-bottom: 50px;
+}
+
+.image__section {
+  margin-bottom: 100px;
+}
+
+.image__section + .image__section {
+  margin-bottom: 50px;
+}
+
+.text__section:last-of-type {
+  margin-bottom: 200px;
 }
 
 .wrapper li {
@@ -13,11 +25,11 @@
 
 .scene {
   background-color: transparent;
-  height: calc(var(--vh) / 2);
+  height: 50vh;
 }
 
 .viewer {
-  background-image: url('../img/cinnamoroll_frame.png?new');
+  background-image: url('/img/cinnamoroll_frame.png?new');
   background-repeat: no-repeat;
   background-position: 0 50%;
   max-width: 300px;
