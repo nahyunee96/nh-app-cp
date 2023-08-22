@@ -29,7 +29,6 @@ const Sub: React.FC = () => {
           end: "+=" + (frame_count * offset_value),
           pin: true,
           scrub: true,
-          //markers: true,
         }
       });
     }, );
@@ -37,19 +36,10 @@ const Sub: React.FC = () => {
   }, [])
 
   useEffect(() => {
-
-    const images = gsap.utils.toArray<HTMLImageElement>("img");
-    //const loader:any = document.querySelector(".loader--text");
-    /*const updateProgress = (instance:any) =>
-      (loader.textContent = `${Math.round(
-        (instance.progressedCount * 100) / images.length
-      )}%`);*/
-
     const showDemo = () => {
 
       document.body.style.overflow = "auto";
       document.scrollingElement?.scrollTo(0, 0);
-      //gsap.to(document.querySelector(".loader"), { autoAlpha: 0 });
 
       gsap.utils.toArray<HTMLDivElement>("section").forEach((section, index) => {
         
@@ -78,7 +68,7 @@ const Sub: React.FC = () => {
 
     imagesLoaded(document.body, showDemo)
   }, [])
-//}
+
 
   return (
     <article className="overflow-x-hidden">
