@@ -1,6 +1,4 @@
 .main__wrapper {
-  text-align: center;
-  margin: 100px auto;
 
   svg {
     margin: auto;
@@ -55,9 +53,6 @@
   }
 }
 
-.marketing__lab {
-  transform: translateY(-200px);
-}
 
 .mask path {
   fill: #fff;
@@ -66,7 +61,6 @@
 
 .mask__2 {
   fill: none;
-  //stroke: #5DC7EE;
   stroke-width: 100px;
   stroke-dasharray: 3180;
   animation: strokeAni 3s linear both;
