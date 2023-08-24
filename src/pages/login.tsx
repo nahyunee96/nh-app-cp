@@ -1,19 +1,17 @@
 
 import React, { useEffect } from 'react'
-import Link from 'next/link';
-import { Inter } from 'next/font/google'
+import Link from 'next/link'
+import { elementGetter } from '@/util/element.getter'
 import styles from '../styles/login.module.scss'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const Login: React.FC = () => {
   
     useEffect(() => {
       if (typeof window !== 'undefined') {
-        const loginBtn = document.getElementById('form__login__btn') as HTMLSpanElement | null;
+        const loginBtn = elementGetter<HTMLSpanElement>('#form__login__btn')
   
-        const LoginFormIdInput = document.getElementById('form__id__login') as HTMLInputElement | null;
-        const LoginFormPwInput = document.getElementById('form__pw__login') as HTMLInputElement | null;
+        const LoginFormIdInput = elementGetter<HTMLInputElement>('#form__id__login')
+        const LoginFormPwInput = elementGetter<HTMLInputElement>('#form__id__login')
   
         if (loginBtn && LoginFormIdInput && LoginFormPwInput) {
           loginBtn.addEventListener('click', () => {

@@ -7,14 +7,14 @@ const Join: NextPage = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const joinBtn = elementGetter<HTMLSpanElement>('#form__join__btn')
-      const JoinFormIdInput = document.getElementById('form__id__join') as HTMLInputElement | null;
-      const JoinFormPwInput = document.getElementById('form__pw__join') as HTMLInputElement | null;
-      const JoinFormPwCfInput = document.getElementById('form__pw__cf__join') as HTMLInputElement | null;
-      const JoinFormMailInput = document.getElementById('form__mail__join') as HTMLInputElement | null;
-      const JoinFormNameInput = document.getElementById('form__name__join') as HTMLInputElement | null;
+      const JoinFormIdInput = elementGetter<HTMLInputElement>('#form__id__join')
+      const JoinFormPwInput = elementGetter<HTMLInputElement>('#form__pw__join')
+      const JoinFormPwCfInput = elementGetter<HTMLInputElement>('#form__pw__cf__join')
+      const JoinFormMailInput = elementGetter<HTMLInputElement>('#form__mail__join')
+      const JoinFormNameInput = elementGetter<HTMLInputElement>('#form__name__join')
 
       const RegType = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
-      const RegTypeMail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+      const RegTypeMail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
 
       if (joinBtn && JoinFormIdInput && JoinFormPwInput && JoinFormPwCfInput && JoinFormMailInput && JoinFormNameInput) {
         joinBtn.addEventListener('click', () => {
@@ -82,7 +82,7 @@ const Join: NextPage = () => {
       //oninput
       if (JoinFormIdInput) {
         JoinFormIdInput.addEventListener('input', () => {
-          const JoinIdText = document.getElementById('id__text__join') as HTMLInputElement | null;
+          const JoinIdText = elementGetter<HTMLElement>('#id__text__join')
           if (JoinIdText) {
             if (!JoinFormIdInput.value) {
               JoinIdText.innerText = '• 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.'
@@ -98,7 +98,7 @@ const Join: NextPage = () => {
 
       if (JoinFormPwInput) {
         JoinFormPwInput.addEventListener('input', () => {
-          const JoinPwText = document.getElementById('pw__text__join') as HTMLElement | null;
+          const JoinPwText = elementGetter<HTMLElement>('#pw__text__join')
           if (JoinPwText) {
             if (!JoinFormPwInput.value) {
               JoinPwText.innerText = '• 비밀번호는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.'
@@ -114,7 +114,7 @@ const Join: NextPage = () => {
 
       if (JoinFormPwCfInput) {
         JoinFormPwCfInput.addEventListener('input', () => {
-          const JoinPwCfText = document.getElementById('pw__cf__text__join') as HTMLElement | null;
+          const JoinPwCfText = elementGetter<HTMLElement>('#pw__cf__text__join')
           if (JoinPwCfText) {
             if (JoinFormPwInput && JoinFormPwCfInput) {
               if (JoinFormPwInput.value !== JoinFormPwCfInput.value) {
@@ -129,7 +129,7 @@ const Join: NextPage = () => {
 
       if (JoinFormMailInput) {
         JoinFormMailInput.addEventListener('input', () => {
-          const JoinMailText = document.getElementById('mail__text__join') as HTMLElement | null;
+          const JoinMailText = elementGetter<HTMLElement>('#mail__text__join')
           if (JoinMailText) {
             if (!JoinFormMailInput.value) {
               JoinMailText.innerText = '• 비밀번호를 찾을 때 사용됩니다.'
