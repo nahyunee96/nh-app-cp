@@ -1,5 +1,6 @@
 .main__wrapper {
   text-align: center;
+  margin: 100px auto;
 
   svg {
     margin: auto;
@@ -66,15 +67,15 @@
 .mask__2 {
   fill: none;
   //stroke: #5DC7EE;
-  stroke-width: 25px;
-  stroke-dasharray: 2238;
+  stroke-width: 100px;
+  stroke-dasharray: 3180;
   animation: strokeAni 3s linear both;
 }
 
 
 @keyframes strokeAni {
   0% {
-    stroke-dashoffset: 2238;
+    stroke-dashoffset: 3180;
   }
   100% {
     stroke-dashoffset: 0;
