@@ -93,22 +93,22 @@ const Sub: NextPage = () => {
  
      gsap.registerPlugin(ScrollTrigger)
  
-     var frame_count  = 17,
-     offset_value = 316;
+     var frame_count  = 16,
+     offset_value = 1187
  
      const ctx = gsap.context(() => {
        gsap.to(boxRef.current, {
-         backgroundPosition: (-offset_value * frame_count) + "px 50%",
+         backgroundPosition: (-(offset_value * 0.889) * frame_count) + "px 50%",
          ease: "steps(" + frame_count + ")",
          scrollTrigger: {
            trigger: "#sticky",
-           start: "-50% top",
+           start: "-30% top",
            end: "+=" + (frame_count * offset_value),
            pin: true,
            scrub: true,
          }
-       });
-     }, );
+       })
+     }, )
      return () => ctx.revert()
    }, [])
 
