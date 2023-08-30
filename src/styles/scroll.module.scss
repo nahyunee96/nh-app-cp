@@ -34,3 +34,12 @@
   background-position: 0 50%;
   max-width: 1000px;
 }
+
+.scrollContainer {
+  height: 100vh;
+}
+
+
+.cinnamoroll.visible {
+  stroke-dashoffset: 0;
+}

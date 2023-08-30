@@ -1,7 +1,6 @@
 import gsap from "gsap/dist/gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import Image from 'next/image'
-import { useRef, useEffect } from "react"
+import { useEffect } from "react"
 import { NextPage } from 'next'
 import styles from '../styles/scroll.module.scss'
 import imagesLoaded from 'imagesloaded'
@@ -15,42 +14,42 @@ const Sub: NextPage = () => {
 
     if (!sentenceElement) {
       console.error("문장 요소를 찾을 수 없습니다.");
-      return;
+      return
     }
 
-    const sentence = sentenceElement.textContent || "";
-    const words = sentence.split(' ');
+    const sentence = sentenceElement.textContent || ""
+    const words = sentence.split(' ')
 
-    sentenceElement.textContent = '';
+    sentenceElement.textContent = ''
 
-    const timeline = gsap.timeline();
+    const timeline = gsap.timeline()
 
     words.forEach((word, index) => {
-      const wordContainer = document.createElement('span');
-      wordContainer.style.whiteSpace = 'nowrap';
-      wordContainer.style.display = 'inline-block';
-      wordContainer.style.opacity = '0';
-      wordContainer.style.transform = 'translateY(20px)';
-      wordContainer.style.marginRight = '10px';
+      const wordContainer = document.createElement('span')
+      wordContainer.style.whiteSpace = 'nowrap'
+      wordContainer.style.display = 'inline-block'
+      wordContainer.style.opacity = '0'
+      wordContainer.style.transform = 'translateY(20px)'
+      wordContainer.style.marginRight = '10px'
 
       const letters = word.split('');
 
       letters.forEach((letter, letterIndex) => {
-        const span = document.createElement('span');
-        span.textContent = letter;
-        span.style.display = 'inline-block';
-        span.style.opacity = '0';
-        span.style.transform = 'translateY(20px)';
-        wordContainer.appendChild(span);
+        const span = document.createElement('span')
+        span.textContent = letter
+        span.style.display = 'inline-block'
+        span.style.opacity = '0'
+        span.style.transform = 'translateY(20px)'
+        wordContainer.appendChild(span)
 
-        timeline.to(span, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.out' }, index * 0.2 + letterIndex * 0.05);
+        timeline.to(span, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.out' }, index * 0.2 + letterIndex * 0.05)
       });
 
-      sentenceElement.appendChild(wordContainer);
-      timeline.to(wordContainer, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.out' }, index * 0.2);
+      sentenceElement.appendChild(wordContainer)
+      timeline.to(wordContainer, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.out' }, index * 0.2)
     });
 
-    gsap.fromTo(sentenceElement, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power1.inOut' });
+    gsap.fromTo(sentenceElement, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power1.inOut' })
   }, []);
 
   // image, text move left or right scrollTrigger animation code
@@ -58,7 +57,7 @@ const Sub: NextPage = () => {
     const showDemo = () => {
 
       document.body.style.overflow = "auto";
-      document.scrollingElement?.scrollTo(0, 0);
+      document.scrollingElement?.scrollTo(0, 0)
 
       gsap.utils.toArray<HTMLDivElement>("section").forEach((section, index) => {
         
@@ -85,32 +84,6 @@ const Sub: NextPage = () => {
 
     imagesLoaded(document.body, showDemo)
   }, [])
-
-   // cinnamonroll scrollTrigger frame animation
-   const boxRef = useRef<HTMLDivElement | null>(null)
-
-   useEffect(() => {
- 
-     gsap.registerPlugin(ScrollTrigger)
- 
-     var frame_count  = 16,
-     offset_value = 1187
- 
-     const ctx = gsap.context(() => {
-       gsap.to(boxRef.current, {
-         backgroundPosition: (-(offset_value * 0.889) * frame_count) + "px 50%",
-         ease: "steps(" + frame_count + ")",
-         scrollTrigger: {
-           trigger: "#sticky",
-           start: "-30% top",
-           end: "+=" + (frame_count * offset_value),
-           pin: true,
-           scrub: true,
-         }
-       })
-     }, )
-     return () => ctx.revert()
-   }, [])
 
   return (
     <article className="overflow-x-hidden">
@@ -160,13 +133,12 @@ const Sub: NextPage = () => {
       <section className={`${styles.section} ${styles.text__section} flex justify-center items-center `}>
         <h2 className="wrapper text-cyan-300 text-9xl flex font-black leading-none whitespace-nowrap">WELCOME TO THE WORLD OF CINAMOROLLS!</h2>
       </section>
-      
 
-      <section id="sticky" className={`${styles.scene} scene h-full w-full bg-current relative`}>
-        <div ref={boxRef} className={`${styles.viewer} viewer mx-auto w-full h-full`}></div>
+      <section className={`${styles.section} ${styles.head__section} flex justify-center items-center`}>
+        <h2 className="text-cyan-300 text-7xl flex font-black leading-none overflow-hidden whitespace-nowrap sentence">
+          END.
+        </h2>
       </section>
-
-      <section className={styles.section}></section>
 
     </article>
   )
