@@ -1,10 +1,13 @@
 import gsap from "gsap/dist/gsap"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import Image from 'next/image'
 import { useEffect } from "react"
 import { NextPage } from 'next'
 import styles from '../styles/scroll.module.scss'
 import imagesLoaded from 'imagesloaded'
 
+
+gsap.registerPlugin(ScrollTrigger)
 //function Sub() {
 const Sub: NextPage = () => {
   

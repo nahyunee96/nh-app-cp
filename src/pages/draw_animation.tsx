@@ -15,28 +15,28 @@ const AnimatedSVG: React.FC = () => {
 
     if (svg) {
       gsap.defaults({ ease: 'none' });
-
+  
       const pulses = gsap.timeline({
         defaults: {
-          duration: 0.5, // Adjust the duration for a slower animation
-          autoAlpha: 0.5, // Reduce opacity for a subtle effect
-          scale: 1.2, // Adjust the scale for a more gentle pulse
+          duration: 1,
+          autoAlpha: 0.5,
+          scale: 1.2,
           transformOrigin: 'center',
-          ease: 'elastic(0.05, 0.05)', // Adjust the ease for a smoother animation
+          ease: 'elastic(0.05, 0.05)',
         },
       });
-
+  
       pulses
         .to('.ball02, .text01', {}, 2)
-        .to('.ball03, .text02', {}, 2)
-        .to('.ball04, .text03', {}, 2);
-
+        .to('.ball03, .text02', {}, 5)
+        .to('.ball04, .text03', {}, 8);
+  
       const main = gsap.timeline({
-        defaults: { duration: 10 }, // Adjust the duration for a slower scroll
+        defaults: { duration: 10 },
       });
-
+  
       main
-        .to('.ball01', { duration: 1, autoAlpha: 1 })
+        .to('.ball01', { duration: 1, autoAlpha: 1 }) // Initially hide the element
         .from('.theLine', { drawSVG: 0 }, 0)
         .to('.ball01', {
           motionPath: {
@@ -46,13 +46,20 @@ const AnimatedSVG: React.FC = () => {
           },
         }, 0)
         .add(pulses, 0);
-
+  
+      // Apply ScrollTrigger
       ScrollTrigger.create({
         trigger: svg,
-        start: 'top top',
+        start: 'center bottom',
         end: 'bottom bottom',
         animation: main,
-        scrub: true,
+        scrub: 0.5,
+        onUpdate: self => {
+          // Check if the ScrollTrigger is active
+          if (self.isActive) {
+            gsap.set('.ball01', { autoAlpha: 1 }); // Keep the element visible during animation
+          }
+        },
       });
     }
   }, []);
