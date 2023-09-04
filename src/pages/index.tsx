@@ -1,33 +1,30 @@
 import { gsap } from "gsap"
 import { useEffect } from "react"
-import { Inter } from 'next/font/google'
 import styles from '../styles/main.module.scss'
-
-const inter = Inter({ subsets: ['latin'] })
 
 function Home() {
 
   useEffect(() => {
-    const cinnamon = document.getElementById('length') as SVGPathElement | null;
+    const cinnamon = document.getElementById('length') as SVGPathElement | null
     if (cinnamon) {
-      const cinnamonLength = cinnamon.getTotalLength();
-      console.log(cinnamonLength);
+      const cinnamonLength = cinnamon.getTotalLength()
+      console.log(cinnamonLength)
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    let sunSpeed = 2;
+    let sunSpeed = 2
 
-    let gradTl = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 1.5 });
-    let gradTlText = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 1.5 });
+    let gradTl = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 1.5 })
+    let gradTlText = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 1.5 })
 
-    const colors = ['#5DC7EE', '#215CA5', '#112F54', '#475569'];
+    const colors = ['#5DC7EE', '#215CA5', '#112F54', '#475569']
 
     colors.forEach((color, index) => {
-      gradTl.to("#gradient stop", { duration: sunSpeed, stopColor: color, stagger: 0.5 }, index * sunSpeed);
-      gradTlText.to("#gradient__text stop", { duration: sunSpeed, stopColor: color, stagger: 0.5 }, index * sunSpeed);
-    });
-  }, []);
+      gradTl.to("#gradient stop", { duration: sunSpeed, stopColor: color, stagger: 0.5 }, index * sunSpeed)
+      gradTlText.to("#gradient__text stop", { duration: sunSpeed, stopColor: color, stagger: 0.5 }, index * sunSpeed)
+    })
+  }, [])
 
 
 

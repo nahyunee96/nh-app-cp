@@ -1,20 +1,20 @@
 import React, { useRef, useEffect } from 'react'
-
 import gsap from "gsap/dist/gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { MotionPathPlugin } from 'gsap/dist/MotionPathPlugin'
 import styles from '../styles/draw.module.scss'
+import { NextPage } from 'next'
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
 
-const AnimatedSVG: React.FC = () => {
-  const svgRef = useRef<SVGSVGElement>(null);
+const AnimatedSVG: NextPage = () => {
+  const svgRef = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
-    const svg = svgRef.current;
+    const svg = svgRef.current
 
     if (svg) {
-      gsap.defaults({ ease: 'none' });
+      gsap.defaults({ ease: 'none' })
   
       const pulses = gsap.timeline({
         defaults: {
@@ -24,16 +24,16 @@ const AnimatedSVG: React.FC = () => {
           transformOrigin: 'center',
           ease: 'elastic(0.05, 0.05)',
         },
-      });
+      })
   
       pulses
         .to('.ball02, .text01', {}, 2)
         .to('.ball03, .text02', {}, 5)
-        .to('.ball04, .text03', {}, 8);
+        .to('.ball04, .text03', {}, 8)
   
       const main = gsap.timeline({
         defaults: { duration: 10 },
-      });
+      })
   
       main
         .to('.ball01', { duration: 1, autoAlpha: 1 }) // Initially hide the element
@@ -45,7 +45,7 @@ const AnimatedSVG: React.FC = () => {
             alignOrigin: [0.5, 0.5],
           },
         }, 0)
-        .add(pulses, 0);
+        .add(pulses, 0)
   
       // Apply ScrollTrigger
       ScrollTrigger.create({
@@ -57,12 +57,12 @@ const AnimatedSVG: React.FC = () => {
         onUpdate: self => {
           // Check if the ScrollTrigger is active
           if (self.isActive) {
-            gsap.set('.ball01', { autoAlpha: 1 }); // Keep the element visible during animation
+            gsap.set('.ball01', { autoAlpha: 1 }) // Keep the element visible during animation
           }
         },
-      });
+      })
     }
-  }, []);
+  }, [])
 
   return (
     <svg
@@ -95,7 +95,7 @@ const AnimatedSVG: React.FC = () => {
       />
       
     </svg>
-  );
-};
+  )
+}
 
-export default AnimatedSVG;
+export default AnimatedSVG

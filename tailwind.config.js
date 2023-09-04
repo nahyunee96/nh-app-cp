@@ -37,7 +37,11 @@ module.exports = {
       width: {
         '128': '32rem',
         '160': '40rem',
+        '1200': '1200px',
       },
+      height: {
+        '600' : '600px'
+      }
       
     },
     fontFamily: {

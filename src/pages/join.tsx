@@ -13,7 +13,7 @@ const Join: NextPage = () => {
       const JoinFormMailInput = elementGetter<HTMLInputElement>('#form__mail__join')
       const JoinFormNameInput = elementGetter<HTMLInputElement>('#form__name__join')
 
-      const RegType = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
+      const RegType = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/
       const RegTypeMail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
 
       if (joinBtn && JoinFormIdInput && JoinFormPwInput && JoinFormPwCfInput && JoinFormMailInput && JoinFormNameInput) {
@@ -23,60 +23,60 @@ const Join: NextPage = () => {
           // id
           if (JoinFormIdInput.value === '') {
             alert('아이디를 입력해주세요.')
-            JoinFormIdInput.focus();
-            return;
+            JoinFormIdInput.focus()
+            return
           }
 
           if (!RegType.test(JoinFormIdInput.value)) {
-            alert('사용할 수 없는 아이디를 입력하셨습니다. 조건에 맞게 입력해주세요.');
+            alert('사용할 수 없는 아이디를 입력하셨습니다. 조건에 맞게 입력해주세요.')
             JoinFormIdInput.focus()
-            return;
+            return
           }
 
           // pw
           if (JoinFormPwInput.value === '') {
             alert('비밀번호를 입력해주세요.')
             JoinFormPwInput.focus()
-            return;
+            return
           }
           if (!RegType.test(JoinFormPwInput.value)) {
-            alert('사용할 수 없는 비밀번호를 입력하셨습니다. 조건에 맞게 입력해주세요.');
+            alert('사용할 수 없는 비밀번호를 입력하셨습니다. 조건에 맞게 입력해주세요.')
             JoinFormPwInput.focus()
-            return;
+            return
           }
           if (JoinFormPwCfInput.value === '') {
-            alert('비밀번호를 한번 더 입력해주세요.');
+            alert('비밀번호를 한번 더 입력해주세요.')
             JoinFormPwCfInput.focus()
-            return;
+            return
           }
 
           if (JoinFormPwInput.value !== JoinFormPwCfInput.value) {
-            alert('비밀번호 확인이 일치하지 않습니다. 다시 입력해 주세요.');
-            return;
+            alert('비밀번호 확인이 일치하지 않습니다. 다시 입력해 주세요.')
+            return
           }
 
           // name
           if (JoinFormNameInput.value === '') {
-            alert('성명을 입력해주세요.');
+            alert('성명을 입력해주세요.')
             JoinFormNameInput.focus()
-            return;
+            return
           }
 
           // email
           if (JoinFormMailInput.value === '') {
-            alert('이메일을 입력해주세요.');
+            alert('이메일을 입력해주세요.')
             JoinFormMailInput.focus()
-            return;
+            return
           }
 
           if (!RegTypeMail.test(JoinFormMailInput.value)) {
-            alert('올바른 이메일 형식이 아닙니다. 확인 후 다시 입력해주세요.');
+            alert('올바른 이메일 형식이 아닙니다. 확인 후 다시 입력해주세요.')
             JoinFormMailInput.focus()
-            return;
+            return
           }
 
           // Other actions after validation
-        });
+        })
       }
 
       //oninput
@@ -87,13 +87,13 @@ const Join: NextPage = () => {
             if (!JoinFormIdInput.value) {
               JoinIdText.innerText = '• 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.'
             } else if (!RegType.test(JoinFormIdInput.value)) {
-              console.log('응 아니야~ 이 아이디 못써');
+              console.log('응 아니야~ 이 아이디 못써')
               JoinIdText.innerText = '사용할 수 없는 아이디입니다.'
             } else {
               JoinIdText.innerText = '사용 가능한 아이디입니다.'
             }
           }
-        });
+        })
       }
 
       if (JoinFormPwInput) {
@@ -109,7 +109,7 @@ const Join: NextPage = () => {
               JoinPwText.innerText = '사용 가능한 비밀번호입니다.'
             }
           }
-        });
+        })
       }
 
       if (JoinFormPwCfInput) {
@@ -124,7 +124,7 @@ const Join: NextPage = () => {
               }
             }
           }
-        });
+        })
       }
 
       if (JoinFormMailInput) {
@@ -139,7 +139,7 @@ const Join: NextPage = () => {
               JoinMailText.innerText = '사용할 수 있는 이메일입니다.'
             }
           }
-        });
+        })
       }
     }
 
@@ -154,7 +154,7 @@ const Join: NextPage = () => {
       } else {
         setShowPopup(false)
       }
-    };
+    }
   //}, [])
 
   return (
@@ -166,7 +166,7 @@ const Join: NextPage = () => {
         <input type="text" id="form__id__join" placeholder="사용하실 아이디를 입력해주세요." 
         className='block w-full p-2 bg-slate-950 border-2 text-slate-300 border-slate-700 focus:outline focus:outline-slate-400 duration-300'
         maxLength={12} />
-        <p className='text-slate-300 mt-2' id="id__text__join">&bull; 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.</p>
+        <p className='text-slate-300 mt-2' id="id__text__join">&bull 아이디는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.</p>
       </div>
 
       <div className={`mb-4`}>
@@ -174,7 +174,7 @@ const Join: NextPage = () => {
         <input type="password" id="form__pw__join" placeholder="사용하실 비밀번호를 입력해주세요." 
         className='block w-full p-2 bg-slate-950 border-2 text-slate-300 border-slate-700 focus:outline focus:outline-slate-400 duration-300'
         maxLength={12}/>
-        <p className='text-slate-300 mt-2' id="pw__text__join">&bull; 비밀번호는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.</p>
+        <p className='text-slate-300 mt-2' id="pw__text__join">&bull 비밀번호는 4~12자리로 영문 + 숫자 조합으로 생성 바랍니다.</p>
       </div>
 
       <div className={`mb-4`}>
@@ -182,7 +182,7 @@ const Join: NextPage = () => {
         <input type="password" id="form__pw__cf__join" placeholder="비밀번호를 한번 더 입력해주세요." 
         className='block w-full p-2 bg-slate-950 border-2 text-slate-300 border-slate-700 focus:outline focus:outline-slate-400 duration-300'
         maxLength={12}/>
-        <p className='text-slate-300 mt-2' id="pw__cf__text__join">&bull; 비밀번호를 확인을 위해 한번 더 입력해주세요.</p>
+        <p className='text-slate-300 mt-2' id="pw__cf__text__join">&bull 비밀번호를 확인을 위해 한번 더 입력해주세요.</p>
       </div>
 
       <div className={`mb-4`}>
@@ -196,7 +196,7 @@ const Join: NextPage = () => {
         <input type="text" id="form__mail__join" placeholder="이메일을 입력해주세요." 
         className='block w-full p-2 bg-slate-950 border-2 text-slate-300 border-slate-700 focus:outline focus:outline-slate-400 duration-300'
         />
-        <p className='text-slate-300 mt-2' id="mail__text__join">&bull; 비밀번호를 찾을 때 사용됩니다.</p>
+        <p className='text-slate-300 mt-2' id="mail__text__join">&bull 비밀번호를 찾을 때 사용됩니다.</p>
       </div>
       <div className={`mb-16 flex justify-between`}>
         <div className={`${styles.agree__chk}`}>

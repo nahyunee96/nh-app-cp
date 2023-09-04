@@ -22,7 +22,7 @@ const Login: React.FC = () => {
             } else if (LoginFormPwInput.value === '') {
               alert('비밀번호를 입력해주세요.')
             } else {
-              return true;
+              return true
             }
           })
         }
