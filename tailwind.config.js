@@ -35,13 +35,19 @@ module.exports = {
         // => @media (max-width: 575px) { ... }
       },
       width: {
+        '96': '96%',
         '128': '32rem',
         '160': '40rem',
         '1200': '1200px',
       },
       height: {
         '600' : '600px'
-      }
+      },
+      maxWidth: {
+        'screen-1300': '1300px',
+      },
+
+      
       
     },
     fontFamily: {

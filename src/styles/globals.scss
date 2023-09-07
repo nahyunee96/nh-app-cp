@@ -7,14 +7,20 @@
   font-family: 'Raleway','IBM Plex Sans KR', sans-serif;
 }
 
-body, html, #__next {
-  height: 100% !important;
-}
-
 body {
   background-color: rgb(2, 6, 23);
 }
 
-// #__next {
-//   height: var(--vh);
-// }
+body,html,#__next {
+  overflow-x: hidden;
+}
+
+//LOAD시 잠시 스크롤 막기
+.stop-scrolling {
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--vh));
+  overflow: hidden;
+}

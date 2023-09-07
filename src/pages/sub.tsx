@@ -6,12 +6,12 @@ import { NextPage } from 'next'
 gsap.registerPlugin(ScrollTrigger)
 //function Sub() {
 const Sub: NextPage = () => {
-  
-  
 
   return (
     <article className="overflow-x-hidden">
-      <div className=""></div>
+      <div className="">
+
+      </div>
     </article>
   )
 }

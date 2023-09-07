@@ -1,78 +1,49 @@
-.main__wrapper {
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(var(--vh));
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  clip-path: inset(77% 40% 13% 40%);
+  transition: all 3s cubic-bezier(0.25, 1, 0.3, 1);
+  transform: translateY(30%);
+  margin-top: -30px;
+  background-color:#000;
 
-  svg {
-    margin: auto;
-
-    .cinnamon__body {
-      animation: cinnamon__body__ani 6s both;
-      stroke-dasharray: 64519;
-      stroke-dashoffset: 64519;
-     
-    }
-
-    @keyframes cinnamon__body__ani {
-      0% {
-        stroke-dashoffset: 64519;
-        
-      }
-      100% {
-        stroke-dashoffset: 0;
-       
-      }
-    }
-
-    .cinnamon__eye {
-      animation: cinnamon__eye__ani 1s 2s both;
-      stroke-dasharray: 1272;
-      stroke-dashoffset: 1272;
-    }
-
-    @keyframes cinnamon__eye__ani {
-      0% {
-        stroke-dashoffset: 1272;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    .cinnamon__mouth {
-      animation: cinnamon__mouth__ani 1s 2s both;
-      stroke-dasharray: 3503;
-      stroke-dashoffset: 3503;
-    }
-
-    @keyframes cinnamon__mouth__ani {
-      0% {
-        stroke-dashoffset: 3503;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
+  video {
+    width: 100vw;
+    height: 56.25vw; 
+    min-height: calc(var(--vh));
+    min-width: 177.77vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
 
-.mask path {
-  fill: #fff;
-  stroke: #fff;
+
+.on1 .videoWrapper {
+  display: block;
+  transform: translateY(0%);
 }
 
-.mask__2 {
-  fill: none;
-  stroke-width: 100px;
-  stroke-dasharray: 3180;
-  animation: strokeAni 3s linear both;
+.on2 .videoWrapper {
+  clip-path: inset(31% 37% 31% 37%);
 }
 
 
-@keyframes strokeAni {
-  0% {
-    stroke-dashoffset: 3180;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
+.on3 .videoWrapper {
+  clip-path: inset(0% 0%);
+  width: 100%;
+  height: 100%;
+  transform: translateY(0%) scale(1);
+  //filter: opacity(60%);
+  transition: all 1s ease-in-out;
+  margin-top: 0%;
+  pointer-events: none;
 }
-
