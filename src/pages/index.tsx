@@ -90,17 +90,20 @@ const Main: NextPage = () => {
   }, []);
   return (
     <main className="overflow-x-hidden">
-      {/* Header 컴포넌트를 isHeaderVisible 상태와 함께 렌더링 */}
       {isHeaderVisible && <Header isHeaderVisible={isHeaderVisible} />}
       <div ref={wrapperRef} id="section01" className="section01 h-[var(--vh)] overflow-x-hidden">
-        <MainVideoContainer />
+        <div className={` ${styles.videoWrapper}`}>
+          <video autoPlay loop muted  >
+            <source src="/img/main_video.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
 
       <div id="section02" className="section02 h-[var(--vh)]">
-        {/* section02 내용 */}
+        
       </div>
       <div id="section03" className="section03 h-[var(--vh)]">
-        {/* section02 내용 */}
+        
       </div>
        
     </main>
