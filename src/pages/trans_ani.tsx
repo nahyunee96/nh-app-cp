@@ -97,7 +97,7 @@ const TransAni: NextPage = () => {
     <article className="overflow-x-hidden">
       <div className={`${styles.section} ${styles.head__section} h-[var(--vh)] flex justify-center items-center`}>
         <h2 className="text-cyan-300 text-7xl flex font-black leading-none overflow-hidden whitespace-nowrap sentence">
-          WELCOME&nbsp TO&nbsp THE&nbsp WORLD&nbsp OF&nbsp CINAMOROLLS!
+          WELCOME&nbsp; TO&nbsp; THE&nbsp; WORLD&nbsp; OF&nbsp; CINAMOROLLS!
         </h2>
       </div>
 

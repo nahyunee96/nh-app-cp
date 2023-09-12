@@ -4,10 +4,13 @@
     margin: auto;
 
     .cinnamon__body {
-      animation: cinnamon__body__ani 6s both;
       stroke-dasharray: 64519;
       stroke-dashoffset: 64519;
      
+    }
+
+    .cinnamon__body.ani {
+      animation: cinnamon__body__ani 6s both;
     }
 
     @keyframes cinnamon__body__ani {
@@ -22,9 +25,13 @@
     }
 
     .cinnamon__eye {
-      animation: cinnamon__eye__ani 1s 2s both;
+      
       stroke-dasharray: 1272;
       stroke-dashoffset: 1272;
+    }
+
+    .cinnamon__eye.ani {
+      animation: cinnamon__eye__ani 1s 2s both;
     }
 
     @keyframes cinnamon__eye__ani {
@@ -37,9 +44,13 @@
     }
 
     .cinnamon__mouth {
-      animation: cinnamon__mouth__ani 1s 2s both;
+      
       stroke-dasharray: 3503;
       stroke-dashoffset: 3503;
+    }
+
+    .cinnamon__mouth.ani {
+      animation: cinnamon__mouth__ani 1s 2s both;
     }
 
     @keyframes cinnamon__mouth__ani {
@@ -63,6 +74,10 @@
   fill: none;
   stroke-width: 100px;
   stroke-dasharray: 3180;
+ 
+}
+
+.mask__2.ani {
   animation: strokeAni 3s linear both;
 }
 

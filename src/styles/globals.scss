@@ -22,5 +22,5 @@ body,html,#__next {
   left: 0;
   right: 0;
   height: calc(var(--vh));
-  overflow: hidden;
+  overflow: hidden !important;
 }
