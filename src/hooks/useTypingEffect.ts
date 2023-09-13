@@ -41,11 +41,11 @@ const initializeTypingEffect = (selector: string) => {
       span.style.transform = 'translateY(20px)';
       wordContainer.appendChild(span);
 
-      timeline.to(span, { opacity: 1, y: 0, duration: 0.5  }, index * 0.2 + letterIndex * 0.05);
+      timeline.to(span, { opacity: 1, y: 0, duration: 0.5 }, index * 0.2 + letterIndex * 0.05);
     });
 
     sentenceElement.appendChild(wordContainer);
-    timeline.to(wordContainer, { opacity: 1, y: 0, duration: 0.5  }, index * 0.2);
+    timeline.to(wordContainer, { opacity: 1, y: 0, duration: 0.5 }, index * 0.2);
   });
 
   gsap.fromTo(sentenceElement, { opacity: 0 }, { opacity: 1, duration: 1 });
@@ -53,21 +53,25 @@ const initializeTypingEffect = (selector: string) => {
 
 const useTypingEffect = (selector: string) => {
   useEffect(() => {
-    if (document.readyState === 'complete') {
+    const handleLoad = () => {
+      initializeTypingEffect(selector);
+    };
+
+    if (typeof gsap === 'undefined') {
+      // gsap 라이브러리가 로드되지 않았다면 로드되었을 때 초기화
+      window.addEventListener('gsapLoaded', handleLoad);
+    } else if (document.readyState === 'complete') {
       // 문서가 이미 로드되었다면 바로 초기화
       initializeTypingEffect(selector);
     } else {
       // 문서가 로드되기를 기다린 후 초기화
-      window.addEventListener('DOMContentLoaded', () => {
-        initializeTypingEffect(selector);
-      });
+      window.addEventListener('DOMContentLoaded', handleLoad);
     }
 
     // 컴포넌트가 언마운트될 때 리스너 제거
     return () => {
-      window.removeEventListener('DOMContentLoaded', () => {
-        initializeTypingEffect(selector);
-      });
+      window.removeEventListener('DOMContentLoaded', handleLoad);
+      window.removeEventListener('gsapLoaded', handleLoad);
     };
   }, [selector]);
 };
