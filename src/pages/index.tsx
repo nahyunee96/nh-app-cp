@@ -45,7 +45,7 @@ const Main: NextPage = () => {
     '/img/cinnamonroll__01.jpg',
   ]
 
-  useScrollTriggerEffect();
+  useScrollTriggerEffect()
 
   return (
     <main className="overflow-x-hidden">
@@ -86,7 +86,7 @@ const Main: NextPage = () => {
         </section>
 
         {/* 새로운 섹션을 추가하고 클래스 이름과 아이디를 설정합니다. */}
-        <section className="your-custom-section" id="sentenceElement"></section>
+      <section className="your-custom-section" id="sentenceElement"></section>
       </div>
       <div id="section03" className="section03">
         <div className={`${styles_cn.main__wrapper} text-center my-10`} id="cinnamon__wrapper">
