@@ -3,64 +3,6 @@
   svg {
     margin: auto;
 
-    .cinnamon__body {
-      stroke-dasharray: 64519;
-      stroke-dashoffset: 64519;
-     
-    }
-
-    .cinnamon__body.ani {
-      animation: cinnamon__body__ani 6s both;
-    }
-
-    @keyframes cinnamon__body__ani {
-      0% {
-        stroke-dashoffset: 64519;
-        
-      }
-      100% {
-        stroke-dashoffset: 0;
-       
-      }
-    }
-
-    .cinnamon__eye {
-      
-      stroke-dasharray: 1272;
-      stroke-dashoffset: 1272;
-    }
-
-    .cinnamon__eye.ani {
-      animation: cinnamon__eye__ani 1s 2s both;
-    }
-
-    @keyframes cinnamon__eye__ani {
-      0% {
-        stroke-dashoffset: 1272;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    .cinnamon__mouth {
-      
-      stroke-dasharray: 3503;
-      stroke-dashoffset: 3503;
-    }
-
-    .cinnamon__mouth.ani {
-      animation: cinnamon__mouth__ani 1s 2s both;
-    }
-
-    @keyframes cinnamon__mouth__ani {
-      0% {
-        stroke-dashoffset: 3503;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
   }
 }
 
@@ -73,21 +15,9 @@
 .mask__2 {
   fill: none;
   stroke-width: 100px;
-  stroke-dasharray: 3180;
+  stroke: #5DC7EE; 
  
 }
 
-.mask__2.ani {
-  animation: strokeAni 3s linear both;
-}
 
-
-@keyframes strokeAni {
-  0% {
-    stroke-dashoffset: 3180;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 

@@ -9,15 +9,14 @@ import useImageScrollEffect from '../hooks/useImageScrollEffect'
 import useScrollTriggerEffect from '../hooks/useScrollTriggerEffect'
 import useTypingEffect from '../hooks/useTypingEffect'
 
-//gsap.registerPlugin(ScrollTrigger)
-
-
-//function Sub() {
 const Main: NextPage = () => {
+
   const wrapperRef = useRef<HTMLDivElement | null>(null)
 
   // useHeadScroll 훅을 호출하고 결과를 변수에 저장
   const isHeaderVisible = useHeadScroll(wrapperRef)
+
+  
 
   useEffect(() => {
     document.body.classList.add("stop-scrolling")
@@ -27,15 +26,15 @@ const Main: NextPage = () => {
     }, 3000)
   }, [])
 
+
   const originalText = 'WELCOME TO MY HOMEPAGE!' // 타이핑될 텍스트
   const typingSpeed = 100 // 타이핑 속도 (밀리초)
   const delay = 3000 // 시작 지연 시간 (밀리초)
 
   const { text, isTyping } = Typewriter(originalText, typingSpeed, delay)
 
-
+  
   const sentenceSelector = '.sentence'
-
   useTypingEffect(sentenceSelector)
   useImageScrollEffect()
 
@@ -187,13 +186,13 @@ const Main: NextPage = () => {
               70 89 70 173 0 58 -5 83 -21 110 -33 57 -49 46 -51 -37 -3 -108 -43 -170 -136
               -211 -34 -14 -128 -16 -178 -2 -47 13 -109 67 -136 120 -18 33 -23 58 -23 117
               0 63 5 85 33 146 41 87 105 160 182 206 96 58 175 71 305 51z"/>
-              <path className={styles_cn.cinnamon__eye} id="cinnamon__eye" d="M5835 5215 c-25 -24 -45 -53 -45 -63 0 -10 -5 -23 -12 -30 -8 -8 -12
+              <path className={`${styles_cn.cinnamon__eye} cinnamon__eye cinnamon__eye_1`} id="cinnamon__eye" d="M5835 5215 c-25 -24 -45 -53 -45 -63 0 -10 -5 -23 -12 -30 -8 -8 -12
               -43 -11 -98 1 -69 6 -95 24 -131 32 -63 84 -103 132 -103 114 0 182 114 165
               274 -13 129 -71 196 -168 196 -35 0 -47 -6 -85 -45z"/>
-              <path className={styles_cn.cinnamon__eye} d="M3900 5223 c-31 -12 -83 -70 -106 -118 -18 -37 -24 -67 -24 -119 0
+              <path className={`${styles_cn.cinnamon__eye} cinnamon__eye cinnamon__eye_2`} d="M3900 5223 c-31 -12 -83 -70 -106 -118 -18 -37 -24 -67 -24 -119 0
               -91 16 -141 62 -189 37 -39 38 -39 95 -35 52 5 60 9 94 47 86 96 83 309 -4
               389 -25 24 -88 37 -117 25z"/>
-              <path className={styles_cn.cinnamon__mouth} id="cinnamon__mouth" d="M5185 4876 c-17 -41 -17 -41 -230 -61 -245 -23 -321 -19 -312 15 6
+              <path className={`${styles_cn.cinnamon__mouth} cinnamon__mouth`} id="cinnamon__mouth" d="M5185 4876 c-17 -41 -17 -41 -230 -61 -245 -23 -321 -19 -312 15 6
               22 -10 50 -28 50 -18 0 -55 -48 -55 -72 0 -27 44 -68 73 -68 30 0 51 -23 67
               -75 7 -22 16 -49 20 -60 4 -11 18 -51 30 -90 42 -131 87 -205 148 -242 53 -33
               82 -29 124 15 61 62 109 170 147 327 26 105 36 135 44 135 4 0 19 11 32 25 18
@@ -486,7 +485,7 @@ const Main: NextPage = () => {
                 
                 
                 <g id="marketing__lab" mask="url(#myMask)" stroke="url(#gradient__text)" transform="translate(-87, -88) scale(1.890, 1.95)">
-                  <path className={styles_cn.mask__2 } id="length" d="M32.333,96.667c0,0,24-23-21-46c0,0-104.606-23,13.697,46
+                  <path className={`${styles_cn.mask__2} mask__2` } id="length" d="M32.333,96.667c0,0,24-23-21-46c0,0-104.606-23,13.697,46
                   c0,0,85.637,24.333,77.303,11.667S63,85.001,52.667,122c0,0,27.667,49.001,52,10.334l28.667-56c0,0-3.667-26.667-28.667-9.667
                   S126.376,94.224,128.333,81L125,164l26,4l14.667-89.333l2,26.667c0,0,18.667-21.346,24,2.16L182.333,183L222,186l-3.333-95.333
                   l7.667,21.667c0,0,15.667-16.333,22,1.333l5.333,70.667L316,124.333c0,0-31.334-23.333-42.667,19.334
@@ -504,7 +503,9 @@ const Main: NextPage = () => {
         </div>
 
       </div>
-      <div className="section04" id="section04"></div>
+      <div className="section04 h-[var(--vh)]" id="section04">
+
+      </div>
     </main>
   )
 }
