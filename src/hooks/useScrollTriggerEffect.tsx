@@ -45,7 +45,7 @@ const useScrollTriggerEffect = () => {
     initializeAnimation('.cinnamon__eye_1', 1272, 1, 2, 'top center', 'bottom center');
     initializeAnimation('.cinnamon__eye_2', 1273, 1, 2, 'top center', 'bottom center');
     initializeAnimation('.cinnamon__mouth', 3503, 1, 3, 'top center', 'bottom center');
-    initializeAnimation('.mask__2', 3180, 3, 1, 'top-=60% center', 'bottom-=40% center');
+    initializeAnimation('.mask__2', 3180, 3, 1, 'top-=120% center', 'bottom center');
 
     const scrollTrigger = gsap.to('.cinnamon__body', {
       strokeDashoffset: 64519,
