@@ -43,8 +43,6 @@ const Main: NextPage = () => {
     '/img/cinnamonroll__01.jpg',
   ]
 
-  
-
   return (
     <main className="overflow-x-hidden">
       {/* 헤더 컴포넌트 렌더링 */}
