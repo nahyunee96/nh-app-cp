@@ -2,9 +2,8 @@ import { useEffect } from 'react'
 import gsap from './gsapLibrary'
 
 const useScrollTriggerEffect = () => {
-
-
-    const isClientSide = typeof window !== 'undefined'
+  const isClientSide = typeof window !== 'undefined'
+  const animationCleanupFunctions: (() => void)[] = []
 
     if (isClientSide) {
       // SVG 애니메이션 초기화
@@ -43,7 +42,7 @@ const useScrollTriggerEffect = () => {
       }
 
       // ScrollTrigger 초기화
-      gsap.to('.cinnamon__body', {
+      const scrollTrigger = gsap.to('.cinnamon__body', {
         strokeDashoffset: 64519,
         duration: 2,
         ease: 'none',
@@ -153,12 +152,16 @@ const useScrollTriggerEffect = () => {
           },
         },
       })
+
+      animationCleanupFunctions.push(() => scrollTrigger.kill())
+    }
+
+    // 컴포넌트가 언마운트될 때 애니메이션 정리
+    return () => {
+      animationCleanupFunctions.forEach((cleanup) => cleanup())
     }
 }
 
-
-//useEffect(() => {
-  useScrollTriggerEffect()
-//}, [])
+useScrollTriggerEffect()
 
 export default useScrollTriggerEffect

@@ -10,13 +10,11 @@ import useScrollTriggerEffect from '../hooks/useScrollTriggerEffect'
 import useTypingEffect from '../hooks/useTypingEffect'
 
 const Main: NextPage = () => {
-
+ 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
 
   // useHeadScroll 훅을 호출하고 결과를 변수에 저장
   const isHeaderVisible = useHeadScroll(wrapperRef)
-
-  
 
   useEffect(() => {
     document.body.classList.add("stop-scrolling")
@@ -26,6 +24,7 @@ const Main: NextPage = () => {
     }, 3000)
   }, [])
 
+  useScrollTriggerEffect();
 
   const originalText = 'WELCOME TO MY HOMEPAGE!' // 타이핑될 텍스트
   const typingSpeed = 100 // 타이핑 속도 (밀리초)
@@ -33,7 +32,6 @@ const Main: NextPage = () => {
 
   const { text, isTyping } = Typewriter(originalText, typingSpeed, delay)
 
-  
   const sentenceSelector = '.sentence'
   useTypingEffect(sentenceSelector)
   useImageScrollEffect()
@@ -45,7 +43,7 @@ const Main: NextPage = () => {
     '/img/cinnamonroll__01.jpg',
   ]
 
-  useScrollTriggerEffect()
+  
 
   return (
     <main className="overflow-x-hidden">
