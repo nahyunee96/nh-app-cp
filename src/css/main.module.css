@@ -1,0 +1,47 @@
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(var(--vh));
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-clip-path: inset(77% 40% 13% 40%);
+          clip-path: inset(77% 40% 13% 40%);
+  transition: all 3s cubic-bezier(0.25, 1, 0.3, 1);
+  transform: translateY(30%);
+  margin-top: -30px;
+  background-color: #000;
+}
+.videoWrapper video {
+  width: 100vw;
+  height: 56.25vw;
+  min-height: calc(var(--vh));
+  min-width: 177.77vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.on1 .videoWrapper {
+  display: block;
+  transform: translateY(0%);
+}
+
+.on2 .videoWrapper {
+  -webkit-clip-path: inset(31% 37% 31% 37%);
+          clip-path: inset(31% 37% 31% 37%);
+}
+
+.on3 .videoWrapper {
+  -webkit-clip-path: inset(0% 0%);
+          clip-path: inset(0% 0%);
+  width: 100%;
+  height: 100%;
+  transform: translateY(0%) scale(1);
+  transition: all 1s ease-in-out;
+  margin-top: 0%;
+  pointer-events: none;
+}
