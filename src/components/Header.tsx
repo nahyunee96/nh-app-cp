@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header: NextPage<HeaderProps> = ({ isHeaderVisible }) => {
 
-  const headerClass = `header w-full fixed h-16 md:h-32 bg-slate-950 border-b top-0 inset-x-0 border-gray-100 z-50 ${
+  const headerClass = `header w-full fixed h-16 sm:h-32 bg-slate-950 border-b top-0 inset-x-0 border-gray-100 z-50 ${
     isHeaderVisible ? '' : 'hidden' // 헤더가 나타나거나 사라지도록 hidden 클래스를 추가
   }`;
 
@@ -46,7 +46,7 @@ const Header: NextPage<HeaderProps> = ({ isHeaderVisible }) => {
 
   return (
     <header className={headerClass}>
-      <nav className="w-full h-full md:h-1/2">
+      <nav className="w-full h-full sm:h-1/2">
         <ul className={`w-full h-full flex ${ulClass}`}>
           {menuItems.map((item, index) => (
             <li

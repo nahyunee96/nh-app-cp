@@ -16,8 +16,14 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       screens: {
-        '2xl': {'max': '1535px'},
-        // => @media (max-width: 1535px) { ... }
+        '4xl': {'max': '1920px'},
+        // => @media (max-width: 1920px) { ... }
+
+        '3xl': {'max': '1599px'},
+        // => @media (max-width: 1599px) { ... }
+
+        '2xl': {'max': '1439px'},
+        // => @media (max-width: 1439px) { ... }
   
         'xl': {'max': '1279px'},
         // => @media (max-width: 1279px) { ... }
@@ -46,7 +52,12 @@ module.exports = {
       maxWidth: {
         'screen-1300': '1300px',
       },
-
+      spacing: {
+        '600px': '600px',
+      },
+      backgroundSize: {
+        'auto-600px': 'auto 600px',
+      },
       
       
     },

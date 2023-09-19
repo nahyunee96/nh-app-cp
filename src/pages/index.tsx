@@ -8,6 +8,7 @@ import Typewriter from '../hooks/typewriter'
 import useImageScrollEffect from '../hooks/useImageScrollEffect'
 import useScrollTriggerEffect from '../hooks/useScrollTriggerEffect'
 import useTypingEffect from '../hooks/useTypingEffect'
+import FrameAni from '../hooks/frameAni'
 
 const Main: NextPage = () => {
  
@@ -499,9 +500,7 @@ const Main: NextPage = () => {
         </div>
 
       </div>
-      <div className="section04 h-[var(--vh)]" id="section04">
-
-      </div>
+      <FrameAni />
     </main>
   )
 }

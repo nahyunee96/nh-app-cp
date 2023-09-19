@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import gsap from './gsapLibrary';
+import gsap from './gsapLibrary'
 import imagesLoaded from 'imagesloaded'
 
 const useImageScrollEffect = () => {
